@@ -16,9 +16,21 @@ var builder = WebApplication.CreateBuilder(args);
 // ==========================================
 // 1. DATABASE — Entity Framework Core
 // ==========================================
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+// Auto-detect: use PostgreSQL (cloud) if DATABASE_URL is set, otherwise SQL Server (local)
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+if (!string.IsNullOrEmpty(databaseUrl))
+{
+    // Cloud deployment (Neon PostgreSQL)
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(databaseUrl));
+}
+else
+{
+    // Local development (SQL Server LocalDB)
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("DefaultConnection")));
+}
 
 // ==========================================
 // 2. DEPENDENCY INJECTION — Register services
@@ -84,8 +96,8 @@ builder.Services.AddSwaggerGen(options =>
         Description = "A task management system API built with ASP.NET Core 8 — Clean Architecture",
         Contact = new OpenApiContact
         {
-            Name = "Your Name",
-            Email = "your-email@example.com"
+            Name = "James Nguyen",
+            Email = "Anhnhx4@gmail.com"
         }
     });
 
@@ -117,15 +129,17 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // ==========================================
-// 6. CORS — Allow React frontend
+// 6. CORS — Allow React frontend (dev + production)
 // ==========================================
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
         policy.WithOrigins(
-                "http://localhost:5173",   // Vite dev server
-                "http://localhost:3000")    // Alternative
+                "http://localhost:5173",    // Vite dev server
+                "http://localhost:3000",    // Alternative
+                "https://*.vercel.app")    // Vercel production
+            .SetIsOriginAllowedToAllowWildcardSubdomains()
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -137,21 +151,25 @@ builder.Services.AddCors(options =>
 // ==========================================
 var app = builder.Build();
 
-// Swagger (only in Development)
-if (app.Environment.IsDevelopment())
+// Auto-migrate database on startup (for cloud deployment)
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskFlow API v1");
-        options.RoutePrefix = "swagger";
-    });
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
 }
 
-app.UseHttpsRedirection();
+// Swagger (enabled in all environments for demo)
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskFlow API v1");
+    options.RoutePrefix = "swagger";
+});
+
 app.UseCors("AllowReactApp");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

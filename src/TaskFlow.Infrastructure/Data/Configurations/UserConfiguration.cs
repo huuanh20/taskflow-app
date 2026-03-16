@@ -31,7 +31,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasDefaultValue("Member");
 
         builder.Property(u => u.CreatedAt)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.Property(u => u.IsActive)
             .HasDefaultValue(true);

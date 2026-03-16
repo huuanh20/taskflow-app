@@ -25,7 +25,7 @@ public class TaskItemConfiguration : IEntityTypeConfiguration<TaskItem>
             .HasDefaultValue(TaskItemPriority.Medium);
 
         builder.Property(t => t.CreatedAt)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.Property(t => t.IsDeleted)
             .HasDefaultValue(false);

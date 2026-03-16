@@ -15,7 +15,7 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
             .HasMaxLength(1000);
 
         builder.Property(c => c.CreatedAt)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.HasOne(c => c.TaskItem)
             .WithMany(t => t.Comments)

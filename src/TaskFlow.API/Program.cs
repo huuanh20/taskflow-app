@@ -20,9 +20,12 @@ var builder = WebApplication.CreateBuilder(args);
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 if (!string.IsNullOrEmpty(databaseUrl))
 {
-    // Cloud deployment (Neon PostgreSQL)
+    // Cloud deployment (Neon PostgreSQL) — convert URI to Npgsql connection string
+    var uri = new Uri(databaseUrl);
+    var userInfo = uri.UserInfo.Split(':');
+    var npgsqlConn = $"Host={uri.Host};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
     builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(databaseUrl));
+        options.UseNpgsql(npgsqlConn));
 }
 else
 {
@@ -151,11 +154,11 @@ builder.Services.AddCors(options =>
 // ==========================================
 var app = builder.Build();
 
-// Auto-migrate database on startup (for cloud deployment)
+// Auto-create database tables on startup (for cloud deployment)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
+    db.Database.EnsureCreated();
 }
 
 // Swagger (enabled in all environments for demo)

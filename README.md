@@ -196,9 +196,66 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## 👤 Author
 
-**[Tên của bạn]**
-- GitHub: [@your-username](https://github.com/your-username)
-- Email: your-email@example.com
+**[Jameer-compose up --build
+```
+
+---
+
+## 📊 API Documentation
+
+Full API documentation is available at `/swagger` when running the backend.
+
+See [docs/API_Design.md](docs/API_Design.md) for detailed endpoint specifications.
+
+**Summary:** 23 RESTful API endpoints covering Auth, Users, Projects, Tasks, Comments, Labels, and Dashboard.
+
+---
+
+## 🧪 Running Tests
+```bash
+dotnet test tests/TaskFlow.Tests
+```
+
+---
+
+## 📝 Documentation
+
+| Document | Description |
+|---|---|
+| [SRS](docs/SRS.md) | Software Requirements Specification (IEEE 830) |
+| [API Design](docs/API_Design.md) | 23 API endpoints with request/response specs |
+| [Database Design](docs/Database_Design.md) | Schema, business rules, seed data |
+| [Diagrams Guide](docs/Architecture_Diagrams_Guide.md) | Architecture, ERD, Use Case, Sequence diagrams |
+| [Future Roadmap](docs/Future_Roadmap.md) | Planned features: AI, SignalR, Docker, WPF |
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Documentation (SRS, API Design, Database Design)
+- [ ] Backend — Authentication (JWT)
+- [ ] Backend — Project & Task CRUD
+- [ ] Frontend — React SPA
+- [ ] Unit Testing
+- [ ] Docker containerization
+- [ ] CI/CD with GitHub Actions
+- [ ] Cloud deployment
+- [ ] 🤖 AI Integration (OpenAI/Gemini)
+- [ ] Real-time updates (SignalR)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**[James Nguyen]**
+- GitHub: https://github.com/huuanh20
+- Email: Anhnhx4@gmail.com
 
 ---
 

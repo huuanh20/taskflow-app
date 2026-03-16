@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: taskflow-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=TaskFlow@2026!
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  # Backend API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taskflow-api
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=TaskFlowDb;User Id=sa;Password=TaskFlow@2026!;TrustServerCertificate=true;
+      - Jwt__Key=TaskFlow-Docker-Secret-Key-2026-Production-Ready!
+      - Jwt__Issuer=TaskFlow.API
+      - Jwt__Audience=TaskFlow.Client
+      - Jwt__ExpireHours=24
+    depends_on:
+      - db
+
+  # React Frontend
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: taskflow-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  sqlserver-data:

@@ -8,6 +8,7 @@ COPY src/TaskFlow.Domain/TaskFlow.Domain.csproj src/TaskFlow.Domain/
 COPY src/TaskFlow.Application/TaskFlow.Application.csproj src/TaskFlow.Application/
 COPY src/TaskFlow.Infrastructure/TaskFlow.Infrastructure.csproj src/TaskFlow.Infrastructure/
 COPY src/TaskFlow.API/TaskFlow.API.csproj src/TaskFlow.API/
+COPY src/TaskFlow.Tests/TaskFlow.Tests.csproj src/TaskFlow.Tests/
 
 # Restore
 RUN dotnet restore

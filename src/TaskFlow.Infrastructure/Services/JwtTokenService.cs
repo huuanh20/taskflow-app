@@ -3,19 +3,15 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using TaskFlow.Application.Interfaces;
 using TaskFlow.Domain.Entities;
 
 namespace TaskFlow.Infrastructure.Services;
 
 /// <summary>
-/// JWT Token Service — generates JWT tokens for authenticated users.
+/// JWT Token Service implementation — generates JWT tokens for authenticated users.
 /// Token contains: UserId, Email, Role as claims.
 /// </summary>
-public interface IJwtTokenService
-{
-    string GenerateToken(User user);
-}
-
 public class JwtTokenService : IJwtTokenService
 {
     private readonly IConfiguration _configuration;

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TaskFlow.Domain.Entities;
+using TaskFlow.Domain.Enums;
 
 namespace TaskFlow.Infrastructure.Data.Configurations;
 
@@ -18,10 +19,10 @@ public class TaskItemConfiguration : IEntityTypeConfiguration<TaskItem>
             .HasMaxLength(2000);
 
         builder.Property(t => t.Status)
-            .HasDefaultValue(0);
+            .HasDefaultValue(TaskItemStatus.Todo);
 
         builder.Property(t => t.Priority)
-            .HasDefaultValue(1);
+            .HasDefaultValue(TaskItemPriority.Medium);
 
         builder.Property(t => t.CreatedAt)
             .HasDefaultValueSql("GETUTCDATE()");

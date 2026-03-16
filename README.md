@@ -10,7 +10,7 @@
 
 <p align="center">
   <b>A full-stack task management system built with ASP.NET Core 8 + React 18</b><br/>
-  <i>Clean Architecture • JWT Auth • RESTful API • Docker Ready</i>
+  <i>Clean Architecture • JWT Auth • RESTful API • Kanban Board • Docker Ready</i>
 </p>
 
 ---
@@ -23,11 +23,12 @@
 - 🔐 **Authentication** — Register/Login with JWT token
 - 📁 **Project Management** — Create and manage multiple projects
 - ✅ **Task Management** — CRUD with status flow (Todo → In Progress → Review → Done)
+- 📊 **Kanban Board** — Visual board with 4 columns and status transitions
 - 👥 **Task Assignment** — Assign tasks to team members
 - 🏷️ **Labels** — Categorize tasks (Bug, Feature, Improvement...)
-- 💬 **Comments** — Discuss task details
-- 📊 **Dashboard** — Visual statistics with charts
-- 🔍 **Search & Filter** — Find tasks by status, priority, assignee
+- 💬 **Comments** — Discuss task details with real-time updates
+- 📈 **Dashboard** — Visual statistics with status & priority charts
+- 🔍 **Search & Filter** — Find tasks by status, priority, keyword
 - 📄 **Pagination & Sorting** — Efficient data loading
 
 ---
@@ -71,7 +72,7 @@ This project follows **Clean Architecture** principles:
 | **Auth** | JWT Bearer Token |
 | **Validation** | FluentValidation |
 | **Mapping** | AutoMapper |
-| **Testing** | xUnit + Moq |
+| **Testing** | xUnit + Moq + FluentAssertions |
 | **API Docs** | Swagger / Swashbuckle |
 | **Frontend** | React 18 + Vite |
 | **UI Library** | Ant Design |
@@ -85,21 +86,25 @@ This project follows **Clean Architecture** principles:
 
 ```
 taskflow-app/
-├── docs/                          # Project documentation
-│   ├── SRS.md                     # Software Requirements Specification
-│   ├── API_Design.md              # API endpoints design
-│   ├── Database_Design.md         # Database schema
-│   └── diagrams/                  # Architecture & UML diagrams
+├── .github/workflows/         # CI/CD pipeline
+├── docs/                      # Project documentation
+│   ├── SRS.md                 # Software Requirements Specification
+│   ├── API_Design.md          # API endpoints design
+│   ├── Database_Design.md     # Database schema
+│   └── diagrams/              # Architecture & UML diagrams
 ├── src/
-│   ├── TaskFlow.API/              # Web API project
-│   ├── TaskFlow.Application/      # Business logic
-│   ├── TaskFlow.Domain/           # Domain entities
-│   └── TaskFlow.Infrastructure/   # Data access
-├── tests/
-│   └── TaskFlow.Tests/            # Unit tests
-├── taskflow-client/               # React frontend
+│   ├── TaskFlow.API/          # Web API project
+│   ├── TaskFlow.Application/  # Business logic
+│   ├── TaskFlow.Domain/       # Domain entities
+│   ├── TaskFlow.Infrastructure/ # Data access
+│   └── TaskFlow.Tests/        # Unit tests (21 test cases)
+├── client/                    # React frontend (Vite + Ant Design)
+│   └── src/
+│       ├── api/               # Axios API modules
+│       ├── components/        # Reusable components
+│       ├── contexts/          # React Context (Auth)
+│       └── pages/             # Page components
 ├── docker-compose.yml
-├── .gitignore
 └── README.md
 ```
 
@@ -116,7 +121,7 @@ taskflow-app/
 ### Run Backend
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/taskflow-app.git
+git clone https://github.com/huuanh20/taskflow-app.git
 cd taskflow-app
 
 # Restore packages & run migrations
@@ -131,7 +136,7 @@ dotnet run --project src/TaskFlow.API
 
 ### Run Frontend
 ```bash
-cd taskflow-client
+cd client
 npm install
 npm run dev
 # App available at: http://localhost:5173
@@ -156,7 +161,8 @@ See [docs/API_Design.md](docs/API_Design.md) for detailed endpoint specification
 
 ## 🧪 Running Tests
 ```bash
-dotnet test tests/TaskFlow.Tests
+dotnet test src/TaskFlow.Tests --verbosity normal
+# 21 test cases: ProjectService (4), TaskService (8), StatusTransition (9)
 ```
 
 ---
@@ -176,12 +182,12 @@ dotnet test tests/TaskFlow.Tests
 ## 🗺️ Roadmap
 
 - [x] Documentation (SRS, API Design, Database Design)
-- [ ] Backend — Authentication (JWT)
-- [ ] Backend — Project & Task CRUD
-- [ ] Frontend — React SPA
-- [ ] Unit Testing
-- [ ] Docker containerization
-- [ ] CI/CD with GitHub Actions
+- [x] Backend — Authentication (JWT)
+- [x] Backend — Project & Task CRUD
+- [x] Frontend — React SPA with Kanban Board
+- [x] Unit Testing (21 test cases)
+- [x] CI/CD with GitHub Actions
+- [ ] Docker containerization (Dockerfile ready)
 - [ ] Cloud deployment
 - [ ] 🤖 AI Integration (OpenAI/Gemini)
 - [ ] Real-time updates (SignalR)
@@ -196,64 +202,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## 👤 Author
 
-**[Jameer-compose up --build
-```
-
----
-
-## 📊 API Documentation
-
-Full API documentation is available at `/swagger` when running the backend.
-
-See [docs/API_Design.md](docs/API_Design.md) for detailed endpoint specifications.
-
-**Summary:** 23 RESTful API endpoints covering Auth, Users, Projects, Tasks, Comments, Labels, and Dashboard.
-
----
-
-## 🧪 Running Tests
-```bash
-dotnet test tests/TaskFlow.Tests
-```
-
----
-
-## 📝 Documentation
-
-| Document | Description |
-|---|---|
-| [SRS](docs/SRS.md) | Software Requirements Specification (IEEE 830) |
-| [API Design](docs/API_Design.md) | 23 API endpoints with request/response specs |
-| [Database Design](docs/Database_Design.md) | Schema, business rules, seed data |
-| [Diagrams Guide](docs/Architecture_Diagrams_Guide.md) | Architecture, ERD, Use Case, Sequence diagrams |
-| [Future Roadmap](docs/Future_Roadmap.md) | Planned features: AI, SignalR, Docker, WPF |
-
----
-
-## 🗺️ Roadmap
-
-- [x] Documentation (SRS, API Design, Database Design)
-- [ ] Backend — Authentication (JWT)
-- [ ] Backend — Project & Task CRUD
-- [ ] Frontend — React SPA
-- [ ] Unit Testing
-- [ ] Docker containerization
-- [ ] CI/CD with GitHub Actions
-- [ ] Cloud deployment
-- [ ] 🤖 AI Integration (OpenAI/Gemini)
-- [ ] Real-time updates (SignalR)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
-
-**[James Nguyen]**
+**James Nguyen**
 - GitHub: https://github.com/huuanh20
 - Email: Anhnhx4@gmail.com
 

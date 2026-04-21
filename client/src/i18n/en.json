@@ -1,0 +1,133 @@
+{
+  "greeting": {
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening"
+  },
+  "common": {
+    "hello": "Hello",
+    "search": "Search...",
+    "settings": "Settings",
+    "logout": "Log out",
+    "create": "Create",
+    "update": "Update",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "or": "or",
+    "total": "Total",
+    "empty": "Empty",
+    "noData": "No data yet",
+    "loading": "Loading..."
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "loginSubtitle": "Sign in to continue your work",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name",
+    "login": "Sign in",
+    "register": "Sign up",
+    "registerTitle": "Create account",
+    "registerSubtitle": "Free, no credit card required",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "registerNow": "Sign up free",
+    "loginNow": "Sign in",
+    "loginSuccess": "Login successful!",
+    "loginFail": "Login failed!",
+    "registerSuccess": "Registration successful!",
+    "registerFail": "Registration failed!",
+    "emailRequired": "Please enter a valid email!",
+    "passwordRequired": "Please enter password!",
+    "nameRequired": "Please enter your name!",
+    "passwordMin": "At least 6 characters!",
+    "heroTitle": "Manage your work\nsmarter ✨",
+    "heroSubtitle": "Organize, track and complete every task efficiently with Kanban board, productivity charts and Focus Timer.",
+    "heroRegisterTitle": "Start your\nproductivity journey 🚀",
+    "heroRegisterSubtitle": "Create a free account and experience more efficient task management than ever before."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "workspace": "Workspace"
+  },
+  "dashboard": {
+    "projects": "PROJECTS",
+    "tasks": "TASKS",
+    "completed": "COMPLETED",
+    "progress": "PROGRESS",
+    "tasksRemaining": "tasks remaining. Keep going! 💪",
+    "weeklyProductivity": "📈 Weekly Productivity",
+    "status": "📊 Status",
+    "priority": "🔥 Priority",
+    "recentProjects": "📂 Projects",
+    "noTasks": "No tasks yet",
+    "noProjects": "No projects yet",
+    "sampleData": "📊 Sample data — complete tasks to see real chart",
+    "dueTodayCount": "tasks due today"
+  },
+  "focus": {
+    "title": "🎯 Focus Timer",
+    "focus": "Focus",
+    "shortBreak": "Short Break",
+    "longBreak": "Long Break",
+    "start": "Start",
+    "pause": "Pause",
+    "sessionsToday": "focus sessions today",
+    "tip": "💡 Tip: Turn off notifications, close unnecessary tabs, and focus on just 1 task per session"
+  },
+  "tasks": {
+    "createTask": "Create task",
+    "editTask": "Edit task",
+    "newTask": "New task",
+    "title": "Title",
+    "description": "Description",
+    "priority": "Priority",
+    "dueDate": "Due date",
+    "status": "Status",
+    "actions": "Actions",
+    "detail": "Details",
+    "searchTasks": "Search tasks...",
+    "addTask": "Add task",
+    "deleteConfirm": "Delete this task?",
+    "deleteSuccess": "Deleted!",
+    "createSuccess": "Task created!",
+    "updateSuccess": "Updated!",
+    "titleRequired": "Please enter title!",
+    "board": "Board",
+    "list": "List",
+    "noDescription": "No description"
+  },
+  "projects": {
+    "title": "📁 Projects",
+    "createProject": "Create project",
+    "editProject": "Edit project",
+    "newProject": "New project",
+    "name": "Project name",
+    "description": "Description",
+    "createdAt": "Created",
+    "deleteConfirm": "Delete this project?",
+    "createSuccess": "Project created!",
+    "updateSuccess": "Updated!",
+    "noDescription": "No description"
+  },
+  "status": {
+    "Todo": "To Do",
+    "InProgress": "In Progress",
+    "Review": "Review",
+    "Done": "Done"
+  },
+  "priority": {
+    "Low": "Low",
+    "Medium": "Medium",
+    "High": "High",
+    "Critical": "Critical"
+  },
+  "calendar": {
+    "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  }
+}

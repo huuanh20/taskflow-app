@@ -1,0 +1,133 @@
+{
+  "greeting": {
+    "morning": "Chào buổi sáng",
+    "afternoon": "Chào buổi chiều",
+    "evening": "Chào buổi tối"
+  },
+  "common": {
+    "hello": "Xin chào",
+    "search": "Tìm kiếm...",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "create": "Tạo",
+    "update": "Cập nhật",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "save": "Lưu",
+    "or": "hoặc",
+    "total": "Tổng",
+    "empty": "Trống",
+    "noData": "Chưa có dữ liệu",
+    "loading": "Đang tải..."
+  },
+  "auth": {
+    "welcomeBack": "Chào mừng trở lại",
+    "loginSubtitle": "Đăng nhập để tiếp tục công việc",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "fullName": "Họ và tên",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "registerTitle": "Tạo tài khoản",
+    "registerSubtitle": "Miễn phí, không cần thẻ ngân hàng",
+    "noAccount": "Chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?",
+    "registerNow": "Đăng ký miễn phí",
+    "loginNow": "Đăng nhập",
+    "loginSuccess": "Đăng nhập thành công!",
+    "loginFail": "Đăng nhập thất bại!",
+    "registerSuccess": "Đăng ký thành công!",
+    "registerFail": "Đăng ký thất bại!",
+    "emailRequired": "Nhập email hợp lệ!",
+    "passwordRequired": "Nhập mật khẩu!",
+    "nameRequired": "Nhập họ tên!",
+    "passwordMin": "Ít nhất 6 ký tự!",
+    "heroTitle": "Quản lý công việc\nthông minh hơn ✨",
+    "heroSubtitle": "Tổ chức, theo dõi và hoàn thành mọi task hiệu quả với Kanban board, biểu đồ năng suất và Focus Timer.",
+    "heroRegisterTitle": "Bắt đầu hành trình\nnăng suất 🚀",
+    "heroRegisterSubtitle": "Tạo tài khoản miễn phí và trải nghiệm quản lý công việc hiệu quả hơn bao giờ hết."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "Dự án",
+    "workspace": "Không gian làm việc"
+  },
+  "dashboard": {
+    "projects": "DỰ ÁN",
+    "tasks": "CÔNG VIỆC",
+    "completed": "HOÀN THÀNH",
+    "progress": "TIẾN ĐỘ",
+    "tasksRemaining": "task cần hoàn thành. Cố lên! 💪",
+    "weeklyProductivity": "📈 Năng suất tuần này",
+    "status": "📊 Trạng thái",
+    "priority": "🔥 Ưu tiên",
+    "recentProjects": "📂 Dự án",
+    "noTasks": "Chưa có task",
+    "noProjects": "Chưa có dự án",
+    "sampleData": "📊 Dữ liệu mẫu — hoàn thành task để thấy biểu đồ thật",
+    "dueTodayCount": "task đến hạn hôm nay"
+  },
+  "focus": {
+    "title": "🎯 Focus Timer",
+    "focus": "Tập trung",
+    "shortBreak": "Nghỉ ngắn",
+    "longBreak": "Nghỉ dài",
+    "start": "Bắt đầu",
+    "pause": "Tạm dừng",
+    "sessionsToday": "phiên tập trung hôm nay",
+    "tip": "💡 Mẹo: Tắt thông báo, đóng tab không cần thiết, và tập trung vào 1 task duy nhất mỗi phiên"
+  },
+  "tasks": {
+    "createTask": "Tạo task",
+    "editTask": "Chỉnh sửa task",
+    "newTask": "Tạo task mới",
+    "title": "Tiêu đề",
+    "description": "Mô tả",
+    "priority": "Ưu tiên",
+    "dueDate": "Hạn chót",
+    "status": "Trạng thái",
+    "actions": "Thao tác",
+    "detail": "Chi tiết",
+    "searchTasks": "Tìm kiếm task...",
+    "addTask": "Add task",
+    "deleteConfirm": "Xóa task này?",
+    "deleteSuccess": "Đã xóa!",
+    "createSuccess": "Tạo task thành công!",
+    "updateSuccess": "Cập nhật thành công!",
+    "titleRequired": "Nhập tiêu đề!",
+    "board": "Board",
+    "list": "List",
+    "noDescription": "Không có mô tả"
+  },
+  "projects": {
+    "title": "📁 Dự án",
+    "createProject": "Tạo dự án",
+    "editProject": "Chỉnh sửa dự án",
+    "newProject": "Tạo dự án mới",
+    "name": "Tên dự án",
+    "description": "Mô tả",
+    "createdAt": "Ngày tạo",
+    "deleteConfirm": "Xóa dự án này?",
+    "createSuccess": "Tạo dự án thành công!",
+    "updateSuccess": "Cập nhật thành công!",
+    "noDescription": "Không có mô tả"
+  },
+  "status": {
+    "Todo": "To Do",
+    "InProgress": "In Progress",
+    "Review": "Review",
+    "Done": "Done"
+  },
+  "priority": {
+    "Low": "Thấp",
+    "Medium": "Trung bình",
+    "High": "Cao",
+    "Critical": "Khẩn cấp"
+  },
+  "calendar": {
+    "days": ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+    "months": ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+    "weekdays": ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
+  }
+}
